@@ -33,5 +33,8 @@
                     <a class="nav-item nav-link" href="<?= base_url('HomeController/AboutUs'); ?>">About Us</a>
                 </div>
             </div>
+            <div class="text-right">
+                <a class="btn navbar-dark my-2 my-sm-0" href="<?= base_url('LoginController'); ?>">Login</a>
+            </div>
         </div>
     </nav>
