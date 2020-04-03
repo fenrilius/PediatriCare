@@ -25,7 +25,7 @@
             </tbody>
         </table>
     </form>
-    <div class="text-center">
-        <a class="small" href="<?= base_url('RegistController'); ?>">Create an Account!</a>
+    <div class="text-left">
+        <a class="btn btn-secondary btn-sm active" href="<?= base_url('RegistController'); ?>">Create an Account!</a>
     </div>
 </div>
