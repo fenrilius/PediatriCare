@@ -29,8 +29,8 @@
                     <a class="nav-item nav-link" href="<?= base_url('HomeController'); ?>">Home</a>
                     <a class="nav-item nav-link" href="<?= base_url('#'); ?>">Rumah Sakit</a>
                     <a class="nav-item nav-link" href="<?= base_url('#'); ?>">konsultasi</a>
-                    <a class="nav-item nav-link" href="<?= base_url('#'); ?>">Info/Berita</a>
-                    <a class="nav-item nav-link" href="#">About Us</a>
+                    <a class="nav-item nav-link" href="<?= base_url('Info'); ?>">Info/Berita</a>
+                    <a class="nav-item nav-link" href="AboutUs">About Us</a>
 
                 </div>
             </div>
