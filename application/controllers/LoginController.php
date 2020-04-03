@@ -20,34 +20,33 @@ class LoginController extends CI_Controller
         $this->form_validation->set_rules('username', 'username', 'required');
         $this->form_validation->set_rules('password', 'password', 'required');
 
-        $user = $this->input->post('username', true);
+        // username = guest kalo gak login
+        $guest =  array('username' => 'guest' );
+        $this->session->set_userdata('user',$guest);
+        
 
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('Login');
             $this->load->view('templates/footer');
         } else {
-            $data = $this->AccountModel->getAccountByUsername($user);
+            $uname = $this->input->post('username', true);
+            $data = $this->AccountModel->getAccountByUsername($uname);
             if ($data) {
-                $cek = $this->input->post('password');
-
-                $data2 = $this->AccountModel->getAccountByPassword($user);
-
-                if ($data2['password'] == $cek) {
-                    echo 'password benar';
+                $pass = $this->input->post('password');
+                if ($data['password'] == $pass) {
                     $sess_data = array(
-                        'username' => $data->username,
-                        'password' => $data->password,
-                        'fullname' => $data->fullname,
-                        'email' => $data->email
+                        'username' => $data['username'],
+                        'fullname' => $data['fullname'],
+                        'email' => $data['email']
                     );
-                    $this->session->set_userdata('data_akun', $sess_data);
+                    $this->session->set_userdata('user', $sess_data);
                     redirect('HomeController');
                 } else {
-                    // redirect('Login'); //pass salah
+                    redirect('LoginController'); //pass salah
                 }
             } else {
-                // redirect('Login'); //email salah
+                redirect('LoginController'); //email salah
             }
         }
     }
