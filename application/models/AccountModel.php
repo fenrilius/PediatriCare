@@ -18,15 +18,7 @@ class AccountModel extends CI_model
 	{
 		//get data mahasiswa based on id 
 		$query = $this->db->query("SELECT * FROM account WHERE username = '" . $uname . "'");
-		return $query->row();
-	}
-
-	public function getAccountByPassword($username)
-	{
-		$this->db->select('password');
-		$this->db->from('account');
-		$this->db->where('username', $username);
-		$query = $this->db->get();
 		return $query->row_array();
 	}
+
 }
