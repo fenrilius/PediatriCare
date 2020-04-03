@@ -35,11 +35,13 @@ class HomeController extends CI_Controller
         $this->load->view('Login');
         $this->load->view('templates/footer');
     }
+    
+    public function AboutUs()
+    {
+        $data['judul'] = 'About us';
+        $this->load->view('templates/header', $data);
+        $this->load->view('AboutUs');
+        $this->load->view('templates/footer');
+    }
 }
-
-
-
-//hello world
-
-
 
